@@ -669,10 +669,10 @@
                 </a>
                 <p style="margin-top: 1.2rem; font-size: 0.85rem; color: #4b5563;">💬 Prefer instant chat? Click above — no form needed.</p>
             </div>
-            <!-- Right side: WhatsApp lead form (name, email, message) -->
+            <!-- Right side: WhatsApp lead form with explicit "WhatsApp Message" -->
             <div class="whatsapp-form-card">
                 <h3 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;"><i class="fab fa-whatsapp" style="color:#25D366;"></i> Connect via WhatsApp</h3>
-                <p style="margin-bottom: 1.5rem; font-size: 0.9rem; color: #4b5563;">Fill in your details, and you'll be redirected to WhatsApp with a pre-filled message.</p>
+                <p style="margin-bottom: 1.5rem; font-size: 0.9rem; color: #4b5563;">Fill in your details. Your name, email, and message will be sent directly to my WhatsApp.</p>
                 <form id="waLeadForm">
                     <div class="form-group">
                         <label>Your full name *</label>
@@ -683,8 +683,8 @@
                         <input type="email" id="waEmail" class="form-control" placeholder="priya@example.com" required>
                     </div>
                     <div class="form-group">
-                        <label>Message (optional)</label>
-                        <textarea id="waMessage" class="form-control" rows="3" placeholder="I'd like to discuss a potential collaboration / AI project..."></textarea>
+                        <label>WhatsApp Message (optional)</label>
+                        <textarea id="waMessage" class="form-control" rows="3" placeholder="Type your WhatsApp message here... I'd love to discuss a project or opportunity."></textarea>
                     </div>
                     <button type="submit" class="submit-wa-btn"><i class="fab fa-whatsapp"></i> Send & open WhatsApp</button>
                 </form>
@@ -742,16 +742,13 @@
         let waText = `Hello Naqeeb! 👋\n\n`;
         waText += `I'm ${name} (${email}) and I came across your AI/ML portfolio.\n\n`;
         if (message) {
-            waText += `Message: ${message}\n\n`;
+            waText += `WhatsApp Message: ${message}\n\n`;
         }
         waText += `Looking forward to connecting with you!`;
 
         const encoded = encodeURIComponent(waText);
         const waUrl = `https://wa.me/${phone}?text=${encoded}`;
         window.open(waUrl, '_blank');
-        // optional: reset form
-        // waForm.reset();
-        // small feedback
         alert("Redirecting to WhatsApp... 🚀");
     });
 
