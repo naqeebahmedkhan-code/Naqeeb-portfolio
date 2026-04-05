@@ -47,7 +47,6 @@
             padding: 0 2rem;
         }
 
-        /* glass header */
         header {
             position: fixed;
             top: 0;
@@ -115,7 +114,6 @@
             cursor: pointer;
         }
 
-        /* hero */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -192,7 +190,6 @@
             z-index: 0;
         }
 
-        /* section style */
         section {
             padding: 5rem 0;
         }
@@ -222,7 +219,6 @@
             max-width: 600px;
         }
 
-        /* experience timeline */
         .timeline-grid {
             display: flex;
             flex-direction: column;
@@ -396,18 +392,60 @@
             transform: translateY(-3px);
             box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
         }
-        .contact-form input, .contact-form textarea {
+        .whatsapp-form-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid #eef2ff;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+        .form-control {
             width: 100%;
-            padding: 1rem;
-            border-radius: 24px;
+            padding: 0.9rem 1.2rem;
+            border-radius: 60px;
             border: 1px solid #e2e8f0;
             background: white;
             transition: 0.2s;
+            font-size: 0.95rem;
         }
-        .contact-form input:focus, .contact-form textarea:focus {
+        .form-control:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(44,62,242,0.1);
+        }
+        textarea.form-control {
+            border-radius: 24px;
+            resize: vertical;
+        }
+        .submit-wa-btn {
+            background: #25D366;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: var(--transition);
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+        .submit-wa-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
         }
         footer {
             background: #0f172a;
@@ -500,8 +538,8 @@
             <p>AI & Machine Learning engineer with deep expertise in computer vision, NLP, and deep learning. Turning complex data into real-world impact.</p>
             <div class="btn-group">
                 <a href="#projects" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Explore work</a>
-                <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Contact me</a>
-                <a href="https://wa.me/919945499841?text=Hi%20Naqeeb%2C%20I%20saw%20your%20portfolio%20and%20I'm%20interested%20in%20connecting%20with%20you!" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="#contact" class="btn btn-outline"><i class="fab fa-whatsapp"></i> Connect on WhatsApp</a>
+                <a href="https://wa.me/919945499841?text=Hi%20Naqeeb%2C%20I%20saw%20your%20portfolio%20and%20I'm%20interested%20in%20connecting%20with%20you!" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Direct Chat</a>
             </div>
         </div>
         <div class="floating-shape"></div>
@@ -618,36 +656,39 @@
 
 <section id="contact">
     <div class="container">
-        <div class="section-title"><h2>Let's Connect</h2><p>Open for collaborations, AI roles, or tech discussions.</p></div>
+        <div class="section-title"><h2>Let's Connect</h2><p>Share your details & I'll get back to you on WhatsApp instantly.</p></div>
         <div class="contact-container">
+            <!-- Left side: contact info + direct WA button -->
             <div>
                 <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h4>Email</h4><a href="mailto:ahmed.naqeebkhan@gmail.com" style="text-decoration: none; color: var(--primary);">ahmed.naqeebkhan@gmail.com</a></div></div>
                 <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div><h4>Phone / WhatsApp</h4><a href="tel:+919945499841" style="text-decoration: none;">+91 9945499841</a></div></div>
                 <div class="contact-item"><div class="contact-icon"><i class="fab fa-linkedin-in"></i></div><div><h4>LinkedIn</h4><a href="https://www.linkedin.com/in/naqeeb-ahmed-khan-b87b08347/" target="_blank">linkedin.com/in/naqeeb-ahmed-khan</a></div></div>
                 <div class="contact-item"><div class="contact-icon"><i class="fab fa-github"></i></div><div><h4>GitHub</h4><a href="https://github.com/naqeebahmedkhan-code" target="_blank">github.com/naqeebahmedkhan-code</a></div></div>
-                <!-- DIRECT WHATSAPP BUTTON -->
                 <a href="https://wa.me/919945499841?text=Hi%20Naqeeb%2C%20I%20saw%20your%20portfolio%20and%20I'd%20love%20to%20connect%20with%20you!" target="_blank" class="whatsapp-direct">
                     <i class="fab fa-whatsapp fa-2x"></i> Chat directly on WhatsApp
                 </a>
-                <p style="margin-top: 1rem; font-size: 0.85rem; color: #4b5563;">💬 Click the button → instantly opens WhatsApp chat with me.</p>
+                <p style="margin-top: 1.2rem; font-size: 0.85rem; color: #4b5563;">💬 Prefer instant chat? Click above — no form needed.</p>
             </div>
-            <div class="contact-form">
-                <form id="whatsappForm">
+            <!-- Right side: WhatsApp lead form (name, email, message) -->
+            <div class="whatsapp-form-card">
+                <h3 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;"><i class="fab fa-whatsapp" style="color:#25D366;"></i> Connect via WhatsApp</h3>
+                <p style="margin-bottom: 1.5rem; font-size: 0.9rem; color: #4b5563;">Fill in your details, and you'll be redirected to WhatsApp with a pre-filled message.</p>
+                <form id="waLeadForm">
                     <div class="form-group">
-                        <label for="visitorName" style="font-weight:600;">Your name *</label>
-                        <input type="text" id="visitorName" placeholder="John Doe" required style="margin-bottom: 1rem; width:100%; padding:1rem; border-radius: 30px; border:1px solid #e2e8f0;">
+                        <label>Your full name *</label>
+                        <input type="text" id="waName" class="form-control" placeholder="e.g., Priya Sharma" required>
                     </div>
                     <div class="form-group">
-                        <label for="visitorEmail" style="font-weight:600;">Email address *</label>
-                        <input type="email" id="visitorEmail" placeholder="john@example.com" required style="margin-bottom: 1rem; width:100%; padding:1rem; border-radius: 30px; border:1px solid #e2e8f0;">
+                        <label>Email address *</label>
+                        <input type="email" id="waEmail" class="form-control" placeholder="priya@example.com" required>
                     </div>
                     <div class="form-group">
-                        <label for="visitorMsg" style="font-weight:600;">Message (optional)</label>
-                        <textarea id="visitorMsg" rows="3" placeholder="I'd like to discuss a project opportunity..." style="margin-bottom: 1.5rem; width:100%; padding:1rem; border-radius: 24px; border:1px solid #e2e8f0;"></textarea>
+                        <label>Message (optional)</label>
+                        <textarea id="waMessage" class="form-control" rows="3" placeholder="I'd like to discuss a potential collaboration / AI project..."></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width:100%; justify-content: center; background: #25D366; box-shadow: none;"><i class="fab fa-whatsapp"></i> Connect on WhatsApp →</button>
-                    <p style="font-size:0.75rem; margin-top:1rem; text-align:center; color:#4b5563;">After submitting, you'll be redirected to WhatsApp with your details pre-filled. No data is stored.</p>
+                    <button type="submit" class="submit-wa-btn"><i class="fab fa-whatsapp"></i> Send & open WhatsApp</button>
                 </form>
+                <p style="font-size: 0.7rem; margin-top: 1rem; text-align: center; color: #6c757d;">Your data is only used to pre-fill WhatsApp message. No storage.</p>
             </div>
         </div>
     </div>
@@ -665,7 +706,7 @@
 <div class="back-to-top" id="back2top"><i class="fas fa-arrow-up"></i></div>
 
 <script>
-    // Mobile menu toggle
+    // Mobile menu
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
@@ -683,38 +724,34 @@
     document.getElementById('back2top').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
     document.getElementById('year').innerText = new Date().getFullYear();
 
-    // WHATSAPP REDIRECT WITH NAME + EMAIL + MESSAGE
-    const whatsappForm = document.getElementById('whatsappForm');
-    const phoneNumber = '919945499841';  // without '+' for wa.me
+    // WhatsApp lead form handler
+    const waForm = document.getElementById('waLeadForm');
+    const phone = '919945499841';
 
-    whatsappForm.addEventListener('submit', (e) => {
+    waForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = document.getElementById('visitorName').value.trim();
-        const email = document.getElementById('visitorEmail').value.trim();
-        const message = document.getElementById('visitorMsg').value.trim();
+        const name = document.getElementById('waName').value.trim();
+        const email = document.getElementById('waEmail').value.trim();
+        const message = document.getElementById('waMessage').value.trim();
 
         if (!name || !email) {
-            alert("Please enter your name and email before connecting on WhatsApp.");
+            alert("Please enter your name and email to connect on WhatsApp.");
             return;
         }
 
-        // Build custom message
-        let whatsappMsg = `Hello Naqeeb! 👋\n\n`;
-        whatsappMsg += `I'm ${name} (${email}) and I came across your AI/ML portfolio.\n\n`;
+        let waText = `Hello Naqeeb! 👋\n\n`;
+        waText += `I'm ${name} (${email}) and I came across your AI/ML portfolio.\n\n`;
         if (message) {
-            whatsappMsg += `Message: ${message}\n\n`;
+            waText += `Message: ${message}\n\n`;
         }
-        whatsappMsg += `Looking forward to connecting with you!`;
+        waText += `Looking forward to connecting with you!`;
 
-        const encodedMsg = encodeURIComponent(whatsappMsg);
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMsg}`;
-        
-        // Open WhatsApp in new tab
-        window.open(whatsappUrl, '_blank');
-        
-        // Optional: reset form after redirect
-        // whatsappForm.reset();
-        // Small success indication
+        const encoded = encodeURIComponent(waText);
+        const waUrl = `https://wa.me/${phone}?text=${encoded}`;
+        window.open(waUrl, '_blank');
+        // optional: reset form
+        // waForm.reset();
+        // small feedback
         alert("Redirecting to WhatsApp... 🚀");
     });
 
